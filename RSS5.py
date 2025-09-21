@@ -27,7 +27,7 @@ from browser_utils import click_button_in_order
 
 # ===== 固定情報（学会サイト） =====
 BASE_URL = "https://www.miyarisan.com/info/"
-GAKKAI = "ミヤリサン"
+GAKKAI = "ミヤリサン(ニュース)"
 
 SELECTOR_TITLE = "div.l-body__content-main article"
 title_selector = "h2"

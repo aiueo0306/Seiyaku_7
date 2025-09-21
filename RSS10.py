@@ -26,7 +26,7 @@ from browser_utils import click_button_in_order
 
 # ===== 固定情報（学会サイト） =====
 BASE_URL = "https://www.yutokuyakuhin.co.jp/info-bk.html"
-GAKKAI = "祐徳薬品"
+GAKKAI = "祐徳薬品（ニュース）"
 
 SELECTOR_TITLE = "table.table-info tr:nth-of-type(n+3)"
 title_selector = "td"

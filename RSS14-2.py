@@ -4,6 +4,7 @@ import subprocess
 import tempfile
 import re
 import time
+import datetime
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 # ===== GitHub 上の共通関数を一時ディレクトリにクローン =====
@@ -25,20 +26,20 @@ from scraper_utils import extract_items
 from browser_utils import click_button_in_order
 
 # ===== 固定情報（学会サイト） =====
-BASE_URL = "https://alexionpharma.jp/news-media"
-GAKKAI = "アレクシオン(ニュース)"
+BASE_URL = "https://www.wakamoto-pharm.co.jp/medical/news/"
+GAKKAI = "わかもと（医療従事者）"
 
-SELECTOR_TITLE = "tbody tr"
+SELECTOR_TITLE = "ul.link li"
 title_selector = "a"
 title_index = 0
 href_selector = "a"
 href_index = 0
-SELECTOR_DATE = "tbody tr"  # typo修正済み
-date_selector = "td"
+SELECTOR_DATE = "ul.link li"  # typo修正済み
+date_selector = "dt"
 date_index = 0
-year_unit  = "年"          # 末尾空白は任意
-month_unit = "月"      # 「6月」「6 月」どちらもOK
-day_unit   = "日"      # 「,」「, 」「 , 」等OK
+year_unit = "年"
+month_unit = "月"
+day_unit = "日"
 date_format = f"%Y{year_unit}%m{month_unit}%d{day_unit}"
 date_regex = rf"(\d{{2,4}}){year_unit}(\d{{1,2}}){month_unit}(\d{{1,2}}){day_unit}"
 # date_format = f"%Y{year_unit}%m{month_unit}%d{day_unit}"
@@ -114,6 +115,6 @@ with sync_playwright() as p:
         print("⚠ 抽出できた記事がありません。HTML構造が変わっている可能性があります。")
 
     os.makedirs("rss_output", exist_ok=True)
-    rss_path = "rss_output/Feed15.xml"
+    rss_path = "rss_output/Feed14-2.xml"
     generate_rss(items, rss_path, BASE_URL, GAKKAI)
     browser.close()

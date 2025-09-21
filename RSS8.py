@@ -27,7 +27,7 @@ from browser_utils import click_button_in_order
 
 # ===== 固定情報（学会サイト） =====
 BASE_URL = "https://www.mochida.co.jp/news/index.html"
-GAKKAI = "持田製薬"
+GAKKAI = "持田製薬(ニュース)"
 
 SELECTOR_TITLE = "ul.s_eirList li"
 title_selector = "span.s_eirModule_title_label.s_titleBox_title_link_label"
